@@ -13,10 +13,9 @@ jobs:
   foo:
     name: Foo
     runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
-      || (github.event_name == 'push' && github.event.push.repository.full_name == github.repository)
     steps:
+      - run: echo ${{ github.event.push.repository.full_name }}
+      - run: echo ${{ github.repository }}
       - name: Checkout
         uses: actions/checkout@v3
         with:
