@@ -1,23 +1,22 @@
 name: "Foo"
 
 on:
-  push:
-    branches-ignore:
-      - main
-  pull_request_target:
-    types:
-      - labeled
-      - synchronize
+  pull_request:
 
 jobs:
   foo:
     name: Foo
-    runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe'))
-      || (github.event_name == 'push' && github.event.push.repository.full_name == github.repository)
+    runs-on: macos-12
+    defaults:
+      run:
+        shell: bash
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          python-version: "3.11-dev"
+
+      - name: Bootstrap poetry
+        run: curl -sL https://install.python-poetry.org | python - -y
