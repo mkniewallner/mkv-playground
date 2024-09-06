@@ -5,18 +5,13 @@ on:
 
 jobs:
   foo:
-    name: Foo
-    runs-on: macos-12
-    defaults:
-      run:
-        shell: bash
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.11-dev"
+          python-version: "3.13-dev"
 
-      - name: Bootstrap poetry
-        run: curl -sL https://install.python-poetry.org | python - -y
+      - uses: mkniewallner/maturin-action@7f596ace86ff6ff2331585f772d8746888237b6a
+        with:
+          command: help
