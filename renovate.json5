@@ -21,7 +21,7 @@
       fileMatch: ["^docs/.*\\.md$"],
       matchStrings: ["\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@v(?<currentValue>.+?)\\s"],
       datasourceTemplate: "github-tags",
-      versioningTemplate: "semver",
+      versioningTemplate: "semver-coerced",
     },
   ],
 }
