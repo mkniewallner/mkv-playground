@@ -15,13 +15,13 @@
 
   // https://docs.renovatebot.com/configuration-options/#custommanagers
   customManagers: [
+    // Update GitHub actions references in documentation.
     {
-      description: "Update Ruff in Cargo.toml",
       customType: "regex",
-      fileMatch: ["^Cargo\\.toml$"],
-      matchStrings: ['git = "https:\/\/github.com\/astral-sh\/ruff", tag = "v(?<currentValue>.*?)"'],
-      datasourceTemplate: "pypi",
-      depNameTemplate: "ruff",
+      fileMatch: ["^docs/.*\\.md$"],
+      matchStrings: ["\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"],
+      datasourceTemplate: "github-tags",
+      versioningTemplate: "semver",
     },
   ],
 }
