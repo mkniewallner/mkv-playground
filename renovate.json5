@@ -13,6 +13,16 @@
     "regexManagers:githubActionsVersions",
   ],
 
+  packageRules: [
+    {
+      matchPaths: ["docs/**/*.md"],
+      commitMessageTopic: "references to {{{depName}}}",
+      semanticCommitType: "docs",
+      semanticCommitScope: null,
+      additionalBranchPrefix: "docs-",
+    },
+  ],
+
   // https://docs.renovatebot.com/configuration-options/#custommanagers
   customManagers: [
     // Update GitHub actions references in documentation.
