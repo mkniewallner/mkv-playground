@@ -18,8 +18,8 @@
     // Update GitHub actions references in documentation.
     {
       customType: "regex",
-      fileMatch: ["^docs\/.*\\.md$"],
-      matchStrings: ["\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"],
+      fileMatch: ["^docs/.*\\.md$"],
+      matchStrings: ["\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>.+?)\\s"],
       datasourceTemplate: "github-tags",
       versioningTemplate: "semver",
     },
