@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v2
+        uses: astral-sh/setup-uv@v3
 ```
 
 # Bar
@@ -29,5 +29,5 @@ jobs:
       - uses: actions/checkout@v4.0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v2.0
+        uses: astral-sh/setup-uv@v3
 ```
