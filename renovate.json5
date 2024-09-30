@@ -13,6 +13,8 @@
     "regexManagers:githubActionsVersions",
   ],
 
+  enabledManagers: ["github-actions", "pre-commit", "cargo", "regex"],
+
   packageRules: [
     {
       matchPaths: ["docs/**/*.md"],
