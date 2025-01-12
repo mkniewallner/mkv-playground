@@ -1,0 +1,14 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  foo:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo $RELEASE_VERSION
+        env:
+          RELEASE_VERSION: ${{ github.ref_name }}
