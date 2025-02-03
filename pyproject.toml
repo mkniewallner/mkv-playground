@@ -1,4 +1,0 @@
-[project]
-name = "foo"
-version = "0.0.1"
-dependencies = ["httpx==0.28.0"]
