@@ -6,7 +6,7 @@ on:
 jobs:
   foo:
     name: Foo
-    runs-on: macos-12
+    runs-on: macos-15
     defaults:
       run:
         shell: bash
